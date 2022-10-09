@@ -9,39 +9,43 @@ namespace Test
 {
     internal class Hero : Basic2d
     {
+        public float speed;
+
         public Hero(string PATH, Vector2 POS, Vector2 DIMS) : base(PATH, POS, DIMS)
         {
-
+            speed = 2.0f;
         }
 
         public override void Update()
         {
             if (Globals._keyboard.GetPress("A"))
             {
-                pos = new Vector2(pos.X - 1, pos.Y);
+                pos = new Vector2(pos.X - speed, pos.Y);
             }
 
             if (Globals._keyboard.GetPress("D"))
             {
-                pos = new Vector2(pos.X + 1, pos.Y);
+                pos = new Vector2(pos.X + speed, pos.Y);
             }
 
             if (Globals._keyboard.GetPress("W"))
             {
-                pos = new Vector2(pos.X, pos.Y - 1);
+                pos = new Vector2(pos.X, pos.Y - speed);
             }
 
             if (Globals._keyboard.GetPress("S"))
             {
-                pos = new Vector2(pos.X, pos.Y + 1);
+                pos = new Vector2(pos.X, pos.Y + speed);
             }
+
+            rot = Globals.RotateTowards(pos, new Vector2(Globals._mouse.newMousePos.X, Globals._mouse.newMousePos.Y));
 
             base.Update();
         }
 
-        public override void Draw()
+        public override void Draw(Vector2 OFFSET)
         {
-            base.Draw();
+            base.Draw(OFFSET);
         }
     }
 }

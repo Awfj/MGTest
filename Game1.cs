@@ -9,6 +9,7 @@ namespace Test
         private GraphicsDeviceManager _graphics;
         //private SpriteBatch _spriteBatch;
         World world;
+        Basic2d cursor;
 
         public Game1()
         {
@@ -30,7 +31,10 @@ namespace Test
             Globals._spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            cursor = new Basic2d("2d\\Misc\\CursorArrow", new Vector2(0, 0), new Vector2(28, 28));
+
             Globals._keyboard = new McKeyboard();
+            Globals._mouse= new McMouseControl();
 
             world = new World();
         }
@@ -42,10 +46,12 @@ namespace Test
 
             // TODO: Add your update logic here
             Globals._keyboard.Update();
+            Globals._mouse.Update();
 
             world.Update();
 
             Globals._keyboard.UpdateOld();
+            Globals._mouse.UpdateOld();
 
 
             base.Update(gameTime);
@@ -57,7 +63,10 @@ namespace Test
 
             // TODO: Add your drawing code here
             Globals._spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
-            world.Draw();
+
+            world.Draw(Vector2.Zero);
+            cursor.Draw(new Vector2(Globals._mouse.newMousePos.X, Globals._mouse.newMousePos.Y), new Vector2(0, 0));
+
             Globals._spriteBatch.End();
 
             base.Draw(gameTime);
