@@ -21,6 +21,12 @@ namespace Test
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            Globals._screenWidth = 800;
+            Globals._screenHeight = 500;
+
+            _graphics.PreferredBackBufferWidth = Globals._screenWidth;
+            _graphics.PreferredBackBufferHeight = Globals._screenHeight;
+            _graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -45,6 +51,7 @@ namespace Test
                 Exit();
 
             // TODO: Add your update logic here
+            Globals._gameTime = gameTime;
             Globals._keyboard.Update();
             Globals._mouse.Update();
 

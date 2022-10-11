@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Test
 {
-    internal class Hero : Basic2d
+    internal class Hero : Unit
     {
         public float speed;
 
