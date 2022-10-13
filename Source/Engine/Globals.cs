@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Test
 {
+    public delegate void PassObject(object i); 
+    public delegate object PassObjectAndReturn(object i); 
+
     internal class Globals
     {
         public static int _screenHeight, _screenWidth;

@@ -38,7 +38,17 @@ namespace Test
                 pos = new Vector2(pos.X, pos.Y + speed);
             }
 
-            rot = Globals.RotateTowards(pos, new Vector2(Globals._mouse.newMousePos.X, Globals._mouse.newMousePos.Y));
+            rot = Globals.RotateTowards(
+                pos, 
+                new Vector2(Globals._mouse.newMousePos.X, Globals._mouse.newMousePos.Y));
+
+            if (Globals._mouse.LeftClick())
+            {
+                GameGlobals.PassProjectile(new Fireball(
+                    new Vector2(pos.X, pos.Y), 
+                    this,
+                    new Vector2(Globals._mouse.newMousePos.X, Globals._mouse.newMousePos.Y)));
+            }
 
             base.Update();
         }

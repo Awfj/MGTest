@@ -13,6 +13,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Content\2d\Misc\CursorArrow.xnb" />
+    <None Remove="Content\2d\Projectiles\Fireball.xnb" />
     <None Remove="Content\Hero.xnb" />
   </ItemGroup>
   <ItemGroup>
@@ -20,6 +21,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\2d\Misc\CursorArrow.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\2d\Projectiles\Fireball.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
