@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using SharpDX.MediaFoundation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,23 +8,24 @@ using System.Threading.Tasks;
 
 namespace Test
 {
-    internal class Unit : Basic2d
+    internal class Mob : Unit
     {
-        public bool dead;
-        public float speed, hitDist;
-
-        public Unit(string PATH, Vector2 POS, Vector2 DIMS) : base(PATH, POS, DIMS)
+        public Mob(string PATH, Vector2 POS, Vector2 DIMS) : base(PATH, POS, DIMS)
         {
-            dead = false;
             speed = 2.0f;
-
-            hitDist = 35.0f;
         }
 
-        public override void Update(Vector2 OFFSET)
+        public virtual void Update(Vector2 OFFSET, Hero HERO)
         {
+            AI(HERO);            
+
             base.Update(OFFSET);
         }
+
+        public virtual void AI()
+        {
+
+        } 
 
         public override void Draw(Vector2 OFFSET)
         {

@@ -9,14 +9,12 @@ namespace Test
 {
     internal class Hero : Unit
     {
-        public float speed;
-
         public Hero(string PATH, Vector2 POS, Vector2 DIMS) : base(PATH, POS, DIMS)
         {
             speed = 2.0f;
         }
 
-        public override void Update()
+        public override void Update(Vector2 OFFSET)
         {
             if (Globals._keyboard.GetPress("A"))
             {

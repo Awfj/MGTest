@@ -23,7 +23,7 @@ namespace Test
             myModel = Globals._content.Load<Texture2D>(PATH);
         }
 
-        public virtual void Update()
+        public virtual void Update(Vector2 OFFSET)
         {
 
         }
