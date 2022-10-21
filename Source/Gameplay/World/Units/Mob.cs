@@ -22,7 +22,7 @@ namespace Test
             base.Update(OFFSET);
         }
 
-        public virtual void AI()
+        public virtual void AI(Hero HERO)
         {
 
         } 

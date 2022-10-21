@@ -67,6 +67,11 @@ namespace Test
             {
                 projectiles[i].Draw(offset);
             }
+
+            for (int i = 0; i < mobs.Count; i++)
+            {
+                mobs[i].Draw(offset);
+            }
         }
     }
 }
